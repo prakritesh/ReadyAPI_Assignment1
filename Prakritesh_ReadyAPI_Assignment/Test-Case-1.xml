@@ -57,6 +57,13 @@
             <codes>200</codes>
           </con:configuration>
         </con:assertion>
+        <con:assertion type="Simple NotContains" id="1d04744b-f41c-4149-9ad7-e8251efb6383" name="Not Contains">
+          <con:configuration>
+            <token>null</token>
+            <ignoreCase>false</ignoreCase>
+            <useRegEx>false</useRegEx>
+          </con:configuration>
+        </con:assertion>
         <con:credentials>
           <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
           <con:authType>No Authorization</con:authType>
@@ -101,6 +108,19 @@
         <con:endpoint>https://petstore.swagger.io</con:endpoint>
         <con:request/>
         <con:originalUri>https://petstore.swagger.io/v2/pet/9223127516080531882</con:originalUri>
+        <con:assertion type="Simple NotContains" id="764ec862-dac0-4899-8220-b6dc1f68fe0f" name="Not Contains">
+          <con:configuration>
+            <token>NULL</token>
+            <ignoreCase>false</ignoreCase>
+            <useRegEx>false</useRegEx>
+          </con:configuration>
+        </con:assertion>
+        <con:assertion type="Valid HTTP Status Codes" id="703f7a82-38c6-45e6-a1db-a8bfb02293fe" name="Valid HTTP Status Codes">
+          <con:settings/>
+          <con:configuration>
+            <codes>200</codes>
+          </con:configuration>
+        </con:assertion>
         <con:credentials>
           <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
           <con:authType>No Authorization</con:authType>
@@ -173,6 +193,13 @@
             <codes>200</codes>
           </con:configuration>
         </con:assertion>
+        <con:assertion type="Simple NotContains" id="04dde99b-b319-4137-a7ba-19cddd67c502" name="Not Contains">
+          <con:configuration>
+            <token>NULL</token>
+            <ignoreCase>false</ignoreCase>
+            <useRegEx>false</useRegEx>
+          </con:configuration>
+        </con:assertion>
         <con:credentials>
           <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
           <con:authType>No Authorization</con:authType>
@@ -227,6 +254,13 @@
             <codes>200</codes>
           </con:configuration>
         </con:assertion>
+        <con:assertion type="Simple NotContains" id="6aad6260-5966-4243-94a4-b5037a91f37e" name="Not Contains">
+          <con:configuration>
+            <token>NULL</token>
+            <ignoreCase>false</ignoreCase>
+            <useRegEx>false</useRegEx>
+          </con:configuration>
+        </con:assertion>
         <con:credentials>
           <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
           <con:authType>No Authorization</con:authType>
@@ -269,6 +303,13 @@
         <con:endpoint>https://petstore.swagger.io</con:endpoint>
         <con:request/>
         <con:originalUri>https://petstore.swagger.io/v2/pet/9223127516080531880</con:originalUri>
+        <con:assertion type="Simple Contains" id="62d0d9c4-f3f6-4784-8727-871bd6b1ea5a" name="Contains">
+          <con:configuration>
+            <token>not found</token>
+            <ignoreCase>true</ignoreCase>
+            <useRegEx>false</useRegEx>
+          </con:configuration>
+        </con:assertion>
         <con:credentials>
           <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
           <con:authType>No Authorization</con:authType>
