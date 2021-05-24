@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testSuite id="15701d8b-2b70-46ba-9e58-78a6d9dfc64f" name="Prakritesh_ReadyAPI_Assignment" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="15701d8b-2b70-46ba-9e58-78a6d9dfc64ffileName">Prakritesh_ReadyAPI_Assignment</con:setting>
+  </con:settings>
+  <con:savedRecentRuns>1</con:savedRecentRuns>
+  <con:runType>SEQUENTIAL</con:runType>
+  <con:properties/>
+  <con:reportParameters/>
+</con:testSuite>
