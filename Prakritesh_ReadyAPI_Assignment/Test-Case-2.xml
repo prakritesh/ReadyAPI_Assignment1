@@ -198,7 +198,7 @@ log.info slur</script>
         <con:endpoint>https://petstore.swagger.io</con:endpoint>
         <con:request>{
   "id": 0,
-  "username": "${Properties_UserCreate#username}",
+  "username": "${Properties_UserUpdate#username}",
   "firstName": "${Properties_UserUpdate#firstName}",
   "lastName": "${Properties_UserUpdate#lastName}",
   "email": "${Properties_UserUpdate#email}",
@@ -235,7 +235,7 @@ log.info slur</script>
         </con:credentials>
         <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
         <con:parameters>
-          <con:entry key="username" value="${Properties_UserCreate#username}"/>
+          <con:entry key="username" value="TOM"/>
         </con:parameters>
       </con:restRequest>
     </con:config>
