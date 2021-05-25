@@ -14,6 +14,16 @@
   <con:method name="DELETE_User" id="77982254-1957-407a-9820-ad8f9c8ab8f1" method="DELETE">
     <con:settings/>
     <con:parameters/>
+    <con:representation type="REQUEST">
+      <con:mediaType>application/json</con:mediaType>
+      <con:params/>
+    </con:representation>
+    <con:representation type="FAULT">
+      <con:mediaType>application/xml</con:mediaType>
+      <con:status>404</con:status>
+      <con:params/>
+      <con:element>apiResponse</con:element>
+    </con:representation>
     <con:request name="Request 1" id="237a8e48-a245-410b-a933-de697e07d3bb" mediaType="application/json" postQueryString="false">
       <con:settings/>
       <con:endpoint>https://petstore.swagger.io</con:endpoint>

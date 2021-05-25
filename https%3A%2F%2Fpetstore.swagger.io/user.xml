@@ -47,6 +47,34 @@
           <con:authType>No Authorization</con:authType>
         </con:credentials>
         <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:parameters>
+          <con:entry key="username" value="username"/>
+        </con:parameters>
+      </con:request>
+    </con:method>
+    <con:method name="Get username" id="3d9298ec-7685-4bc5-914d-d70961f67c1b" method="GET">
+      <con:settings/>
+      <con:parameters/>
+      <con:representation type="FAULT">
+        <con:mediaType>application/json</con:mediaType>
+        <con:status>404</con:status>
+        <con:params/>
+        <con:element xmlns:tom="https://petstore.swagger.io/v2/user/TOM">tom:Fault</con:element>
+      </con:representation>
+      <con:representation type="RESPONSE">
+        <con:mediaType>application/json</con:mediaType>
+        <con:status>200</con:status>
+        <con:params/>
+        <con:element xmlns:prak="https://petstore.swagger.io/v2/user/Prakritesh">prak:Response</con:element>
+      </con:representation>
+      <con:request name="Request 1" id="f5c566ea-d337-4063-a238-841655b2df13" mediaType="application/json">
+        <con:settings/>
+        <con:endpoint>https://petstore.swagger.io</con:endpoint>
+        <con:request/>
+        <con:credentials>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
         <con:parameters/>
       </con:request>
     </con:method>
