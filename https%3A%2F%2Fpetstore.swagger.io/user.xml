@@ -81,10 +81,29 @@
   </con:resource>
   <con:resource name="login" path="login" id="60f41cda-9c79-4857-808c-c4e6c17c465d">
     <con:settings/>
-    <con:parameters/>
+    <con:parameters>
+      <con:parameter>
+        <con:name>username</con:name>
+        <con:value/>
+        <con:style>QUERY</con:style>
+        <con:default/>
+      </con:parameter>
+      <con:parameter>
+        <con:name>password</con:name>
+        <con:value/>
+        <con:style>QUERY</con:style>
+        <con:default/>
+      </con:parameter>
+    </con:parameters>
     <con:method name="GET_LOGIN_USER" id="65f9bab9-1345-49f4-98ea-f7715833cc85" method="GET">
       <con:settings/>
       <con:parameters/>
+      <con:representation type="RESPONSE">
+        <con:mediaType>application/json</con:mediaType>
+        <con:status>200</con:status>
+        <con:params/>
+        <con:element xmlns:log="https://petstore.swagger.io/v2/user/login">log:Response</con:element>
+      </con:representation>
       <con:request name="Request 1" id="878b69d4-edc1-4eef-b9c8-21ba2babea35" mediaType="application/json">
         <con:settings/>
         <con:endpoint>https://petstore.swagger.io</con:endpoint>
@@ -93,7 +112,14 @@
           <con:authType>No Authorization</con:authType>
         </con:credentials>
         <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
-        <con:parameters/>
+        <con:parameters>
+          <con:entry key="password" value=""/>
+          <con:entry key="username" value=""/>
+        </con:parameters>
+        <con:parameterOrder>
+          <con:entry>username</con:entry>
+          <con:entry>password</con:entry>
+        </con:parameterOrder>
       </con:request>
     </con:method>
   </con:resource>
@@ -103,6 +129,12 @@
     <con:method name="LOGOUT_User" id="5a543ead-361f-4285-b354-cb9369a6bc87" method="GET">
       <con:settings/>
       <con:parameters/>
+      <con:representation type="RESPONSE">
+        <con:mediaType>application/json</con:mediaType>
+        <con:status>200</con:status>
+        <con:params/>
+        <con:element xmlns:log="https://petstore.swagger.io/v2/user/logout">log:Response</con:element>
+      </con:representation>
       <con:request name="Request 1" id="9383aa04-87d1-4d87-80af-b5ae2c2261ee" mediaType="application/json">
         <con:settings/>
         <con:endpoint>https://petstore.swagger.io</con:endpoint>
@@ -112,6 +144,7 @@
         </con:credentials>
         <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
         <con:parameters/>
+        <con:parameterOrder/>
       </con:request>
     </con:method>
   </con:resource>

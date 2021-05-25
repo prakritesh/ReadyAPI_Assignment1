@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<con:resource name="user{username}" path="/v2/user{username}" id="84a63d3f-a14c-4524-9f57-7e84fd6c1912" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config">
+<con:resource name="user{username}" path="/v2/user/{username}" id="84a63d3f-a14c-4524-9f57-7e84fd6c1912" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config">
   <con:settings>
     <con:setting id="84a63d3f-a14c-4524-9f57-7e84fd6c1912fileName">user%7Busername%7D</con:setting>
   </con:settings>
@@ -24,6 +24,12 @@
       <con:params/>
       <con:element>apiResponse</con:element>
     </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>200</con:status>
+      <con:params/>
+      <con:element xmlns:user="https://petstore.swagger.io/v2/userusername">user:Response</con:element>
+    </con:representation>
     <con:request name="Request 1" id="237a8e48-a245-410b-a933-de697e07d3bb" mediaType="application/json" postQueryString="false">
       <con:settings/>
       <con:endpoint>https://petstore.swagger.io</con:endpoint>
@@ -32,7 +38,9 @@
         <con:authType>No Authorization</con:authType>
       </con:credentials>
       <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
-      <con:parameters/>
+      <con:parameters>
+        <con:entry key="username" value=""/>
+      </con:parameters>
     </con:request>
   </con:method>
 </con:resource>
