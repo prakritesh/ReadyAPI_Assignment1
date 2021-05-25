@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testCase id="625bfefe-31fa-4b3f-9517-c067dd1d9183" discardOkResults="false" failOnError="true" failTestCaseOnErrors="true" keepSession="false" name="Test Case 2" searchProperties="true" timeout="0" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="625bfefe-31fa-4b3f-9517-c067dd1d9183fileName">Test-Case-2</con:setting>
+  </con:settings>
+  <con:savedRecentRuns>1</con:savedRecentRuns>
+  <con:testStep type="groovy" name="Groovy Script" id="f3422f71-9efb-4c06-b27f-b9d0d01c75db">
+    <con:settings/>
+    <con:config>
+      <script>import java.io.File
+import jxl.*
+import groovy.json.JsonSlurper
+
+//read excelfile
+Workbook wb = Workbook.getWorkbook(new File('C:/Users/PRAKRITESHSAHA/Desktop/API_Groovy_Assignment.xls'))
+sheet = wb.getSheet(0)
+//log.info sheet.getRows()
+//
+//log.info sheet.getColumns()
+   for (int i=1; i&lt;sheet.getRows();i++) {
+    //for (int j=0; j&lt;sheet.getColumns(); j++){
+      //     p=sheet.getCell(j,i).getContents()   //column and row
+     	//log.info p
+
+	  username=sheet.getCell(0,i).getContents()   //column and row
+ 		firstName=sheet.getCell(1,i).getContents() 
+ 		lastName=sheet.getCell(2,i).getContents() 
+ 		email=sheet.getCell(3,i).getContents() 
+ 		password=sheet.getCell(4,i).getContents() 
+ 		phone=sheet.getCell(5,i).getContents() 
+
+	testRunner.testCase.getTestStepByName("Properties_UserCreate").setPropertyValue("username",username)
+     testRunner.testCase.getTestStepByName("Properties_UserCreate").setPropertyValue("firstName",firstName)
+     testRunner.testCase.getTestStepByName("Properties_UserCreate").setPropertyValue("lastName",lastName)
+     testRunner.testCase.getTestStepByName("Properties_UserCreate").setPropertyValue("email",email)
+     testRunner.testCase.getTestStepByName("Properties_UserCreate").setPropertyValue("password",password)
+     testRunner.testCase.getTestStepByName("Properties_UserCreate").setPropertyValue("phone",phone)
+
+     testRunner.testCase.testSuite.project.testSuites["Prakritesh_ReadyAPI_Assignment"].testCases["Test Case 2"].testSteps["POST_Create a new User"].run(testRunner,context)   //executing the post request
+      def responsebody = context.testCase.getTestStepByName("POST_Create a new User").getPropertyValue("response")
+	slurperResponse = new JsonSlurper().parseText(responsebody)
+
+	testRunner.testCase.testSuite.project.testSuites["Prakritesh_ReadyAPI_Assignment"].testCases["Test Case 2"].testSteps["PUT_Update User"].run(testRunner,context)   //executing the post request
+	
+
+       
+       //}
+
+       
+   }</script>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="groovy" name="Groovy Script2" id="d9e3ac98-3d13-4848-acd3-5b424f93b48c">
+    <con:settings/>
+    <con:config>
+      <script>import java.io.File
+import jxl.*
+import groovy.json.JsonSlurper
+//read excelfile
+Workbook wb = Workbook.getWorkbook(new File('C:/Users/PRAKRITESHSAHA/Desktop/API_Groovy_Assignment.xls'))
+sheet = wb.getSheet(0)
+for(i=1;i&lt;sheet.getRows();i++)
+{
+ p=sheet.getCell(0,i).getContents()   //column and row
+ q=sheet.getCell(1,i).getContents() 
+ log.info p
+ log.info q
+testRunner.testCase.getTestStepByName("Properties").setPropertyValue("first_Name",p)
+testRunner.testCase.getTestStepByName("Properties").setPropertyValue("Last_Name",q)
+testRunner.testCase.testSuite.project.testSuites["Positive_testcase"].testCases["TestCase 1"].testSteps["Create_Pet"].run(testRunner,context)   //executing the post request
+def responsebody = context.testCase.getTestStepByName("Create_Pet").getPropertyValue("response")
+slurperResponse = new JsonSlurper().parseText(responsebody)
+log.info slur</script>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="properties" name="Properties_UserCreate" id="f52cdbc1-bfbc-401c-8c67-262d96e3294e">
+    <con:settings/>
+    <con:config xsi:type="con:PropertiesStep" saveFirst="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:properties>
+        <con:property>
+          <con:name>username</con:name>
+          <con:value>Prakritesh</con:value>
+        </con:property>
+        <con:property>
+          <con:name>firstName</con:name>
+          <con:value>Prakritesh</con:value>
+        </con:property>
+        <con:property>
+          <con:name>lastName</con:name>
+          <con:value>Saha</con:value>
+        </con:property>
+        <con:property>
+          <con:name>email</con:name>
+          <con:value>praksaha@in.ibm.com</con:value>
+        </con:property>
+        <con:property>
+          <con:name>password</con:name>
+          <con:value>IBM@123</con:value>
+        </con:property>
+        <con:property>
+          <con:name>phone</con:name>
+          <con:value>1231231</con:value>
+        </con:property>
+      </con:properties>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="restrequest" name="POST_Create a new User" id="9b4ffd5f-b02d-42f8-b0b5-5c45239e3b19">
+    <con:settings/>
+    <con:config service="https://petstore.swagger.io" resourcePath="/v2/user" methodName="POST_USER" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:restRequest name="POST_Create a new User" id="37c2ad7a-6cad-4f5a-aba9-6a9943beca21" mediaType="application/json" postQueryString="false">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:endpoint>https://petstore.swagger.io</con:endpoint>
+        <con:request>{
+  "id": 0,
+  "username": "${Properties_UserCreate#username}",
+  "firstName": "${Properties_UserCreate#firstName}",
+  "lastName": "${Properties_UserCreate#lastName}",
+  "email": "${Properties_UserCreate#email}",
+  "password": "${Properties_UserCreate#password}",
+  "phone": "${Properties_UserCreate#phone}",
+  "userStatus": 0
+}</con:request>
+        <con:originalUri>https://petstore.swagger.io/v2/user</con:originalUri>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:parameters/>
+      </con:restRequest>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="properties" name="Properties_UserUpdate" id="ced3a440-bf13-45a9-ad38-7895d6fe8ee3">
+    <con:settings/>
+    <con:config xsi:type="con:PropertiesStep" saveFirst="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:properties>
+        <con:property>
+          <con:name>username</con:name>
+          <con:value>TOM</con:value>
+        </con:property>
+        <con:property>
+          <con:name>firstName</con:name>
+          <con:value>TOM</con:value>
+        </con:property>
+        <con:property>
+          <con:name>lastName</con:name>
+          <con:value>ROY</con:value>
+        </con:property>
+        <con:property>
+          <con:name>email</con:name>
+          <con:value>saha08@gmail.com</con:value>
+        </con:property>
+        <con:property>
+          <con:name>password</con:name>
+          <con:value>IBM@123</con:value>
+        </con:property>
+        <con:property>
+          <con:name>phone</con:name>
+          <con:value>1231231</con:value>
+        </con:property>
+      </con:properties>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="restrequest" name="PUT_Update User" id="1c304677-c32c-4ef7-8f5c-ed92cc3a2838">
+    <con:settings/>
+    <con:config service="https://petstore.swagger.io" methodName="PUT_USER" resourcePath="/v2/user/{username}" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:restRequest name="PUT_Update User" id="611c0663-03ab-4304-83ca-2c8b549fc685" mediaType="application/json" postQueryString="false">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:encoding>UTF-8</con:encoding>
+        <con:endpoint>https://petstore.swagger.io</con:endpoint>
+        <con:request>{
+  "id": 0,
+  "username": "${Properties_UserCreate#username}",
+  "firstName": "${Properties_UserUpdate#firstName}",
+  "lastName": "${Properties_UserUpdate#lastName}",
+  "email": "${Properties_UserUpdate#email}",
+  "password": "${Properties_UserUpdate#password}",
+  "phone": "${Properties_UserUpdate#phone}",
+  "userStatus": 0
+}</con:request>
+        <con:originalUri>https://petstore.swagger.io/v2/user/Prakritesh</con:originalUri>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:parameters>
+          <con:entry key="username" value="${Properties_UserCreate#username}"/>
+        </con:parameters>
+      </con:restRequest>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="restrequest" name="GET_Get Login" id="0ec79816-e7a1-4263-835a-7d7637d5a6fb">
+    <con:settings/>
+    <con:config service="https://petstore.swagger.io" methodName="GET_LOGIN_USER" resourcePath="/v2/user/login" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:restRequest name="GET_Get Login" id="075da4bb-1ac8-4743-ad82-48e8a085403e" mediaType="application/json">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:encoding>UTF-8</con:encoding>
+        <con:endpoint>https://petstore.swagger.io</con:endpoint>
+        <con:request/>
+        <con:assertion type="Valid HTTP Status Codes" id="93873e06-3c42-4fef-aa5c-79819efab78e" name="Valid HTTP Status Codes">
+          <con:settings/>
+          <con:configuration>
+            <codes>200</codes>
+          </con:configuration>
+        </con:assertion>
+        <con:assertion type="Response SLA Assertion" id="3c39f6dc-7df6-4173-a230-1730b46318f2" name="Response SLA">
+          <con:configuration>
+            <SLA>200</SLA>
+          </con:configuration>
+        </con:assertion>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:parameters/>
+      </con:restRequest>
+    </con:config>
+  </con:testStep>
+  <con:properties/>
+  <con:reportParameters/>
+  <con:breakPoints>
+    <con:testStepId>f52cdbc1-bfbc-401c-8c67-262d96e3294e</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+</con:testCase>
